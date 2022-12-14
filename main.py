@@ -1,7 +1,10 @@
 from random import randint
 
+from graphic_arts.start_game_banner import run_screensaver
+
 
 def attack(char_name: str, char_class: str) -> str:
+    """Функция нанесения урона в зависимости от класса персонажа."""
     if char_class == 'warrior':
         return (f'{char_name} '
                 f'нанёс урон противнику равный '
@@ -18,6 +21,7 @@ def attack(char_name: str, char_class: str) -> str:
 
 
 def defence(char_name: str, char_class: str) -> str:
+    """Функция блокирования урона в зависимости от класса персонажа."""
     if char_class == 'warrior':
         return (f'{char_name} '
                 f'блокировал '
@@ -34,6 +38,7 @@ def defence(char_name: str, char_class: str) -> str:
 
 
 def special(char_name: str, char_class: str) -> str:
+    """Специальное умение в зависимости от класса персонажа."""
     if char_class == 'warrior':
         return (f'{char_name} '
                 f'применил специальное умение «Выносливость '
@@ -50,6 +55,7 @@ def special(char_name: str, char_class: str) -> str:
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    """Функция для тренировки управления классом персонажа."""
     if char_class == 'warrior':
         print(f'{char_name}, '
               f'ты Воитель — отличный боец ближнего боя.')
@@ -77,6 +83,7 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def choice_char_class() -> str:
+    """Функция для определения класса персонажа."""
     approve_choice: str = None
     char_class: str = None
     while approve_choice != 'y':
@@ -98,7 +105,8 @@ def choice_char_class() -> str:
     return char_class
 
 
-def main() -> None:
+if __name__ == '__main__':
+    run_screensaver()
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
     char_name: str = input('...назови себя: ')
@@ -108,6 +116,3 @@ def main() -> None:
     print('Воитель, Маг, Лекарь')
     char_class: str = choice_char_class()
     print(start_training(char_name, char_class))
-
-
-main()
